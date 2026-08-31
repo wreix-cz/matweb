@@ -1,0 +1,6 @@
+# Clean URLs — rewrite /archiv → /archiv.html without redirect
+/archiv /archiv.html 200
+/aktualni-zadani /aktualni-zadani.html 200
+/o-soutezi /o-soutezi.html 200
+/vsechny-prispevky /vsechny-prispevky.html 200
+/faq /faq.html 200
