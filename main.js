@@ -620,11 +620,7 @@
         }
       });
 
-      /* FAQ stránka */
-      if (q.indexOf("faq") !== -1 || q.indexOf("dotaz") !== -1 || q.indexOf("otazk") !== -1 || q.indexOf("casto") !== -1) {
-        hits.unshift({ type: "Stránka", label: "Často kladené dotazy", href: "/faq/" });
-      }
-      
+
       /* Stránka se všemi příspěvky — najdeš ji i vyhledáváním */
       if (q.indexOf("prispev") !== -1 || q.indexOf("vsechny") !== -1 || q.indexOf("posts") !== -1) {
         hits.unshift({ type: "Stránka", label: "Všechny příspěvky", href: "/vsechny-prispevky/" });
