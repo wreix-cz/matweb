@@ -233,6 +233,7 @@ svg { display: block; }
 
 @media (max-width: 900px) {
   .nav__menu { display: none; }
+  .nav > nav { display: none; }
   .nav__toggle {
     display: flex; flex-direction: column; justify-content: center; align-items: center;
     gap: 5px; width: 44px; height: 44px; border-radius: var(--radius-sm);
