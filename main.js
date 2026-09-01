@@ -197,23 +197,32 @@
     card.appendChild(exc);
 
     var more = el("div", "worksheet__more");
-    more.hidden = true;
     more.appendChild(postBody(a));
     card.appendChild(more);
 
-    var btn = el("button", "worksheet__toggle");
-    btn.type = "button";
-    btn.setAttribute("aria-expanded", "false");
-    btn.textContent = "Rozbalit";
-    card.appendChild(btn);
+    var needsToggle = String(a.text || "").length > 160;
+    if (needsToggle) {
+      var btn = el("button", "worksheet__toggle");
+      btn.type = "button";
+      btn.setAttribute("aria-expanded", "false");
+      btn.textContent = "Rozbalit";
+      card.appendChild(btn);
 
-    btn.addEventListener("click", function () {
-      var wasCollapsed = more.hidden;
-      more.hidden = !wasCollapsed;
-      exc.hidden = wasCollapsed;
-      btn.setAttribute("aria-expanded", String(!wasCollapsed));
-      btn.textContent = wasCollapsed ? "Zabalit" : "Rozbalit";
-    });
+      btn.addEventListener("click", function () {
+        var expanded = btn.getAttribute("aria-expanded") === "true";
+        if (expanded) {
+          more.classList.remove("open");
+          exc.hidden = false;
+          btn.setAttribute("aria-expanded", "false");
+          btn.textContent = "Rozbalit";
+        } else {
+          more.classList.add("open");
+          exc.hidden = true;
+          btn.setAttribute("aria-expanded", "true");
+          btn.textContent = "Zabalit";
+        }
+      });
+    }
     return card;
   }
 
@@ -774,7 +783,16 @@
   function applyLogoTheme() {
     var dark = document.documentElement.getAttribute("data-theme") === "dark";
     document.querySelectorAll(".nav__logo").forEach(function (img) {
-      img.setAttribute("src", dark ? "assets/images/logo-white.webp" : "assets/images/logo.webp");
+      img.style.opacity = "0";
+      setTimeout(function () {
+        img.setAttribute("src", dark ? "assets/images/logo-white.webp" : "assets/images/logo.webp");
+        var picture = img.parentElement;
+        if (picture && picture.tagName === "PICTURE") {
+          var source = picture.querySelector("source");
+          if (source) source.setAttribute("srcset", dark ? "assets/images/logo-white.avif" : "assets/images/logo.avif");
+        }
+        img.style.opacity = "1";
+      }, 150);
     });
   }
   applyLogoTheme();

@@ -145,12 +145,15 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--ink); font-weight: 7
 
 <script>
 (function(){
+  function applyLogo(){var d=document.documentElement.getAttribute("data-theme")==="dark";document.querySelectorAll(".nav__logo").forEach(function(i){i.setAttribute("src",d?"assets/images/logo-white.webp":"assets/images/logo.webp");var p=i.parentElement;if(p&&p.tagName==="PICTURE"){var s=p.querySelector("source");if(s)s.setAttribute("srcset",d?"assets/images/logo-white.avif":"assets/images/logo.avif")}})}
+  applyLogo();
   var t=document.documentElement.getAttribute("data-theme");
   document.querySelectorAll(".theme-toggle").forEach(function(b){
     b.addEventListener("click",function(){
       var next=t==="dark"?"light":"dark";
       document.documentElement.setAttribute("data-theme",next);
       t=next;
+      applyLogo();
       try{localStorage.setItem("mates-theme",next)}catch(e){}
     });
   });
