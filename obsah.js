@@ -1,30 +1,7 @@
-/* ============================================================================
-   OBSAH WEBU MATES  —  TADY SE MĚNÍ VŠECHNO
-   ============================================================================
 
-   Tohle je JEDINÝ soubor, který jako editor webu potřebujete upravovat.
-   Mění se v něm: aktuality (posty), aktuální série, archiv, texty, kontakt,
-   fotky a poznámky.
-
-   Jak na to?
-   - Pište texty VŽDY mezi uvozovky:   "takhle"
-   - Každou položku v seznamu oddělte čárkou.  (poslední čárka nevadí)
-   - Nic jiného neměňte — nemažte závorky ani názvy polí jako "nadpis:".
-   - Po uložení stačí stránku obnovit (F5). Nic se negeneruje.
-
-   Když se na stránce nahoře objeví červený pruh „Nepodařilo se načíst obsah“,
-   znamená to, že v tomto souboru chybí čárka, uvozovka nebo závorka.
-   Podrobný návod je v souboru NAVOD.md (ve stejné složce).
-   ============================================================================ */
 
 window.MATES = {
 
-  /* ------------------------------------------------------------------
-     KONTAKT — používá se v patičce a na stránce O soutěži
-     ------------------------------------------------------------------
-     - osoba:   jméno kontaktní osoby
-     - telefon: telefon, jak se má zobrazit (klikací odkaz se vytvoří sám)
-     ------------------------------------------------------------------ */
   kontakt: {
     email: "matesgympol@gmail.com",
     osoba: "Anežka Zahradníčková",
@@ -35,27 +12,16 @@ window.MATES = {
     rokVzniku: "2017"
   },
 
-  /* ------------------------------------------------------------------
-     FOTKY A POZADÍ — stačí přepsat název souboru
-     ------------------------------------------------------------------
-     - heroFotka:    velká fotka na úvodní stránce (do assets/images/)
-     - strankyFotka: jemná fotka na pozadí vnitřních stránek
-     - poznamka:     ručně psaný vzkaz u tlačítek na úvodní stránce
-                     (prázdné "" = žádný vzkaz)
-     ------------------------------------------------------------------ */
   vzhled: {
-    heroFotka: "assets/images/back1.webp",
-    strankyFotka: "assets/images/back2.webp",
+    heroFotka: "assets/images/back1.avif",
+    strankyFotka: "assets/images/back2.avif",
     poznamka: "Řešení zasílejte do termínu! ;)"
   },
 
-  /* ------------------------------------------------------------------
-     ÚVODNÍ STRÁNKA — horní část (hero)
-     ------------------------------------------------------------------ */
   hero: {
     stav: "Ročník 2025/2026",
     podtitulek: "Matematická korespondenční soutěž pro žáky 6. a 7. tříd základních škol. Organizováno studenty Gymnázia Polička.",
-    // Čísla a popisky pod tlačítky:
+
     statistiky: [
       { cislo: "04", text: "série ročně" },
       { cislo: "06–07", text: "třída ZŠ" },
@@ -63,30 +29,6 @@ window.MATES = {
     ]
   },
 
-  /* ------------------------------------------------------------------
-     PŘÍSPĚVKY — posty na úvodní stránce
-     ------------------------------------------------------------------
-     Na úvodní stránce se zobrazí 3 NEJNOVĚJŠÍ příspěvky: první celý,
-     další dva jen s nadpisem a krátkým úryvkem (Rozbalit/Zabalit).
-     VŠECHNY příspěvky jsou na stránce /vsechny-prispevky/ — dostaneš
-     se tam kliknutím na nadpis „Příspěvky“ na úvodní stránce nebo přes
-     vyhledávání (lupa v menu).
-
-     JAK PŘIDAT NOVÝ PŘÍSPĚVEK:
-     1) Zkopírujte celý blok v závorkách { ... } z ukázky níže.
-     2) Vložte ho na ZAČÁTEK seznamu (hned za "aktuality: [").
-     3) Do uvozovek doplňte: tag (štítek), datum, nadpis, text, odkaz.
-     4) Ukončete ho čárkou (jako v ukázce) a soubor uložte.
-
-     - tag:   krátký štítek nahoře na kartě, např. "Novinka", "Výsledky"
-     - datum: jak chcete, např. "1. 9. 2026"
-     - nadpis: titulek postu
-     - text:  text postu (2–3 věty; odstavce oddělte prázdným řádkem)
-     - odkaz + odkazText: VOLITELNÉ tlačítko ke stažení pod textem, např.
-              odkaz: "assets/pdf/...pdf" a odkazText: "Stáhnout výsledky".
-              Textová tlačítka jako "Číst více" už nepoužíváme — prázdné
-              odkaz: "" = tlačítko se nezobrazí
-     ------------------------------------------------------------------ */
   aktuality: [
     {
       tag: "Výsledky",
@@ -104,15 +46,6 @@ window.MATES = {
     }
   ],
 
-
-  /* ------------------------------------------------------------------
-     AKTUÁLNÍ ZADÁNÍ — stránka /aktualni-zadani/
-     ------------------------------------------------------------------
-     Když vyjde nová série:
-     1) Nahrajte PDF do složky assets/pdf/ (např. jako 4-serie.pdf).
-     2) Zde upravte: label (která série), nadpis, termin, popis,
-        pdfNazev a pdf (cestu k souboru).
-     ------------------------------------------------------------------ */
   aktualniSerie: {
     label: "3. série",
     nadpis: "Matematická korespondenční soutěž – 3. série 2025/2026",
@@ -123,24 +56,6 @@ window.MATES = {
     jakOdevzdat: "Řešení zasílejte poštou nebo elektronicky na adresu {email} vždy do uvedeného termínu. Do předmětu uveďte své jméno, školu a třídu."
   },
 
-  /* ------------------------------------------------------------------
-     ARCHIV — stránka /archiv/
-     ------------------------------------------------------------------
-     JAK PŘIDAT SÉRII DO ARCHIVU:
-     1) Nahrajte PDF do assets/pdf/ (např. assets/pdf/2024-2025/4-serie.pdf).
-     2) Do příslušného ročníku doplňte řádek:
-          { nazev: "4. série", pdf: "assets/pdf/2024-2025/4-serie.pdf" },
-     3) Nemáte-li PDF, nechte pole pdf prázdné:
-          { nazev: "4. série", pdf: "" },
-        řádek se pak zobrazí šedě s nápisem "brzy".
-
-     VZOROVÁ ŘEŠENÍ (od ročníku 2025/2026):
-     K sérii můžete přidat i vzorové řešení — nahrajte soubor do podsložky
-     assets/pdf/<ročník>/vzorove/ a doplňte pole vzorove:
-          { nazev: "1. série", pdf: "assets/pdf/2025-2026/1-serie.pdf",
-            vzorove: "assets/pdf/2025-2026/vzorove/vzorove-1-serie.pdf" },
-     Prázdné vzorove: "" = žádné vzorové řešení (odkaz se nezobrazí).
-     ------------------------------------------------------------------ */
   archiv: [
     {
       rocnik: "2025/2026",
@@ -203,12 +118,6 @@ window.MATES = {
     }
   ],
 
-  /* ------------------------------------------------------------------
-     O SOUTĚŽI — stránka /o-soutezi/
-     ------------------------------------------------------------------
-     Každý blok = jeden článek s nadpisem a textem. Odstavce oddělte
-     prázdným řádkem.
-     ------------------------------------------------------------------ */
   oNas: [
     {
       nadpis: "O soutěži",

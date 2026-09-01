@@ -1,11 +1,11 @@
-/* MATES — načte obsah.js a vykreslí ho do stránek. Obsah se mění v obsah.js. */
+
 
 (function () {
   "use strict";
 
   var DATA = window.MATES;
 
-  /* Pomocníci */
+  
 
   function showError(msg) {
     var box = document.getElementById("chyba-obsah");
@@ -52,12 +52,12 @@
     return svg;
   }
 
-  /* \n\n = nový odstavec */
+  
   function paragraphs(text) {
     return String(text || "").split(/\n\s*\n/);
   }
 
-  /* Vyplní kontaktní údaje z obsah.js */
+  
 
   function fillContact() {
     if (!DATA.kontakt) return;
@@ -85,7 +85,7 @@
     });
   }
 
-  /* Úvodní stránka */
+  
 
   function renderHero() {
     if (!DATA.hero) return;
@@ -129,7 +129,7 @@
     if (f && DATA.vzhled.strankyFotka) f.style.backgroundImage = "url('" + DATA.vzhled.strankyFotka + "')";
   }
 
-  /* Úryvek — první odstavec, zkrácený */
+  
   function excerptOf(text) {
     var s = String(text || "").split(/\n\s*\n/)[0].replace(/\s+/g, " ").trim();
     if (s.length <= 150) return s;
@@ -138,7 +138,7 @@
     return (sp > 80 ? cut.slice(0, sp) : cut) + "…";
   }
 
-  /* Tělo příspěvku */
+  
   function postBody(a) {
     var frag = document.createDocumentFragment();
     paragraphs(a.text).forEach(function (p) {
@@ -154,7 +154,7 @@
     return frag;
   }
 
-  /* Celá karta příspěvku */
+  
   function fullCard(a, id) {
     var card = el("article", "worksheet worksheet--full");
     if (id) card.id = id;
@@ -180,7 +180,7 @@
     return card;
   }
 
-  /* Kompaktní karta */
+  
   function compactCard(a) {
     var card = el("article", "worksheet worksheet--compact");
 
@@ -217,7 +217,7 @@
     return card;
   }
 
-  /* Příspěvky */
+  
   function renderPosts() {
     var grid = document.getElementById("posts-grid");
     if (!grid) return;
@@ -229,7 +229,7 @@
       return;
     }
 
-    /* Stránka „Všechny příspěvky“ (vsechny-prispevky.html) */
+    
     if (document.getElementById("all-posts")) {
       polozky.forEach(function (a, i) {
         grid.appendChild(fullCard(a, "post-" + i));
@@ -252,7 +252,7 @@
     });
   }
 
-  /* Aktuální zadání */
+  
 
   function renderSerie() {
     var box = document.getElementById("serie-karta");
@@ -319,7 +319,7 @@
         text = text.replace("{email}", DATA.kontakt.email);
       }
       var pEl = el("p");
-      // rozdělíme podle e-mailu, aby se dal udělat odkaz
+      
       var email = (DATA.kontakt && DATA.kontakt.email) || null;
       if (email && text.indexOf(email) !== -1) {
         var before = text.split(email);
@@ -342,7 +342,7 @@
     box.appendChild(body);
   }
 
-  /* Archiv */
+  
 
   function renderArchiv() {
     var list = document.getElementById("archiv-seznam");
@@ -409,7 +409,7 @@
     });
   }
 
-  /* O soutěži */
+  
 
   function renderONas() {
     var box = document.getElementById("o-nas");
@@ -488,20 +488,20 @@
     });
   }
 
-  /* Vyhledávání */
+  
 
-  /* Odebere diakritiku — „serie“ najde i „série“ */
+  
   function norm(s) {
     return String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
-  /* Vyhledávací panel v menu */
+  
   function initSearch() {
     var toggle = document.getElementById("search-toggle");
     var header = document.querySelector(".site-header");
     if (!toggle || !header) return;
 
-    /* Vytvoříme panel (input + výsledky) přímo pod hlavičkou */
+    
     var panel = el("div", "search-panel");
     panel.id = "search-panel";
     panel.hidden = true;
@@ -570,7 +570,7 @@
       }
     });
 
-    /* Shoda slov („vysledky“ najde i „výsledková“) — porovnává začátky slov */
+    
     function slovoShoda(hay, qw) {
       var parts = hay.split(/\s+/);
       for (var j = 0; j < parts.length; j++) {
@@ -589,7 +589,7 @@
       return true;
     }
 
-    /* Sdílené hledání — používá ho panel pod hlavičkou i mobilní menu */
+    
     function doSearch(input, results) {
       var q = norm(input.value.trim());
       if (q.length < 2) {
@@ -621,18 +621,18 @@
       });
 
 
-      /* Stránka se všemi příspěvky — najdeš ji i vyhledáváním */
+      
       if (q.indexOf("prispev") !== -1 || q.indexOf("vsechny") !== -1 || q.indexOf("posts") !== -1) {
         hits.unshift({ type: "Stránka", label: "Všechny příspěvky", href: "/vsechny-prispevky/" });
       }
 
-      /* Brand variants — "matesgympolicka", "matesgympol", "gympolicka mates", "mates policka" */
+      
       if (q.indexOf("matesgympol") !== -1 || q.indexOf("gympolicka") !== -1 || q.indexOf("mates policka") !== -1 || q.indexOf("policka mates") !== -1) {
         hits.unshift({ type: "Stránka", label: "O soutěži MATES", href: "/o-soutezi/" });
         hits.unshift({ type: "Stránka", label: "MATES – Úvod", href: "/" });
       }
 
-      /* Matematická olympiáda / other math competition queries */
+      
       if (q.indexOf("olympiad") !== -1 || q.indexOf("soutez") !== -1 || q.indexOf("matematik") !== -1 || q.indexOf("uloh") !== -1) {
         if (!hits.length || (hits.length < 3 && hits[0].href !== "/")) {
           hits.unshift({ type: "Stránka", label: "Aktuální zadání – MATES", href: "/aktualni-zadani/" });
@@ -660,7 +660,7 @@
 
     input.addEventListener("input", function () { doSearch(input, results); });
 
-    /* Vyhledávání v mobilním menu (vysouvací panel) */
+    
     var mobileInput = document.getElementById("mobile-search-input");
     var mobileResults = document.getElementById("mobile-search-results");
     if (mobileInput && mobileResults) {
@@ -674,7 +674,7 @@
     }
   }
 
-  /* Mobilní menu */
+  
 
   function initMenu() {
     var navToggle = document.querySelector(".nav__toggle");
@@ -738,7 +738,7 @@
     });
   }
 
-  /* Start */
+  
 
   function main() {
     if (!DATA) {
@@ -762,15 +762,15 @@
       showError("Chyba při vykreslování: " + err.message + " (viz NAVOD.md)");
       if (window.console) console.error(err);
     }
-    /* Vždy odstranit aria-busy — i při chybě, aby screen readers nahlásily obsah */
+    
     document.querySelectorAll("[aria-busy]").forEach(function (n) {
       n.setAttribute("aria-busy", "false");
     });
   }
 
-  /* Téma a stín hlavičky */
+  
 
-  /* V tmavém režimu přepne logo na bílou verzi */
+  
   function applyLogoTheme() {
     var dark = document.documentElement.getAttribute("data-theme") === "dark";
     document.querySelectorAll(".nav__logo").forEach(function (img) {
@@ -801,7 +801,7 @@
     main();
   }
 
-  /* Pro editor.js */
+  
   window.MATESUI = {
     renderPosts: renderPosts,
     renderAktuality: renderPosts

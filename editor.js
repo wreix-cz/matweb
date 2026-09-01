@@ -1,33 +1,13 @@
-/* ============================================================================
-   MATES — EDITOVACÍ REŽIM (skrytý, zaheslovaný)
-   ============================================================================
-   Jak otevřít:  stiskněte 5× rychle za sebou klávesu E  (nebo otevřete
-                 stránku s #editor na konci adresy, např. /#editor)
-   Co umí:       přidat aktualitu a stáhnout aktualizovaný obsah.js,
-                 který pak nahrajete na server (nahradí ten starý).
 
-   ZMĚNA HESLA:  v souboru editor.js najděte řádek  var HESLO_HASH = "..."
-                 a nahraďte ho novým hashem. Hash vygenerujete přímo
-                 v editovacím režimu (sekce „Změnit heslo“) nebo na
-                 Raspberry Pi příkazem:
-                     echo -n "nove-heslo" | sha256sum
-
-   BEZPEČNOST:   web je statický, takže ochrana heslem je jen orientační
-                 (kód si každý může přečíst). Slouží jako zábrana před
-                 náhodnou změnou obsahu návštěvníky. Pro pořádné zabezpečení
-                 by byl potřeba backend (PHP/Node) — viz README.md.
-   ============================================================================ */
 
 (function () {
   "use strict";
 
   var HESLO_HASH = "e1ab230d48e362c6f066b3cbd8b548c41190aed916df74b12f0c5fe72d827eb1";
 
-  var pridane = [];   // bloky aktualit přidaných v této relaci (jako text)
+  var pridane = [];   
 
-  /* ------------------------------------------------------------------
-     SHA-256 (čistý JS — funguje i na obyčejném http, kde není crypto.subtle)
-     ------------------------------------------------------------------ */
+  
   function sha256(ascii) {
     function rightRotate(value, amount) {
       return (value >>> amount) | (value << (32 - amount));
@@ -54,7 +34,7 @@
     while (ascii.length % 64 - 56) ascii += "\x00";
     for (i = 0; i < ascii.length; i++) {
       var j = ascii.charCodeAt(i);
-      if (j >> 8) return; // jen ASCII
+      if (j >> 8) return; 
       words[i >> 2] |= j << ((3 - i) % 4) * 8;
     }
     words[words.length] = ((asciiBitLength / maxWord) | 0);
@@ -95,13 +75,11 @@
   }
 
   function hashHesla(heslo) {
-    // podpora českých znaků v hesle (převod na UTF-8 bajty)
+    
     return sha256(unescape(encodeURIComponent(String(heslo))));
   }
 
-  /* ------------------------------------------------------------------
-     Pomocníci pro UI
-     ------------------------------------------------------------------ */
+  
   function el(tag, cls, text) {
     var node = document.createElement(tag);
     if (cls) node.className = cls;
@@ -109,9 +87,9 @@
     return node;
   }
 
-  var overlay = null;      // tmavé pozadí
-  var promptBox = null;    // přihlašovací okénko
-  var panelBox = null;     // editovací panel
+  var overlay = null;      
+  var promptBox = null;    
+  var panelBox = null;     
 
   function zobrazOverlay() {
     if (overlay) return;
@@ -119,7 +97,7 @@
     overlay.setAttribute("aria-hidden", "false");
     document.body.appendChild(overlay);
 
-    // Přihlášení
+    
     promptBox = el("div", "edit-box");
     promptBox.setAttribute("role", "dialog");
     promptBox.setAttribute("aria-modal", "true");
@@ -179,9 +157,7 @@
     document.removeEventListener("keydown", zavriNaEscape);
   }
 
-  /* ------------------------------------------------------------------
-     Editovací panel
-     ------------------------------------------------------------------ */
+  
   function zobrazPanel() {
     panelBox = el("div", "edit-box edit-panel");
     panelBox.setAttribute("role", "dialog");
@@ -200,7 +176,7 @@
       "Přidáte aktualitu a stáhnete nový obsah.js, který pak nahrajete na server (nahradí ten starý). Pro živý náhled otevřete úvodní stránku.");
     panelBox.appendChild(hint);
 
-    // Formulář
+    
     var pole = [
       { id: "e-tag", label: "Tag (štítek)", ph: "Novinka", povinne: false },
       { id: "e-datum", label: "Datum", ph: "1. 9. 2026", povinne: false },
@@ -236,13 +212,13 @@
     akce.appendChild(addBtn);
     panelBox.appendChild(akce);
 
-    // Přidané v této relaci
+    
     var seznam = el("div", "edit-pridane");
     seznam.id = "edit-pridane";
     panelBox.appendChild(seznam);
     prekresliPridane();
 
-    // Stažení
+    
     var stah = el("div", "edit-stazeni");
     stah.appendChild(el("p", "edit-poznamka", "Až budete hotoví, stáhněte nový obsah.js a nahrajte ho na server."));
     var stahBtn = el("button", "btn btn-chalk btn-full", "Stáhnout obsah.js");
@@ -255,7 +231,7 @@
     stah.appendChild(stav);
     panelBox.appendChild(stah);
 
-    // Změna hesla
+    
     var hesloWrap = el("details", "edit-heslo");
     hesloWrap.appendChild(el("summary", null, "Změnit heslo"));
     var hf = el("div", "edit-form");
@@ -291,9 +267,7 @@
     if (prvni) setTimeout(function () { prvni.focus(); }, 50);
   }
 
-  /* ------------------------------------------------------------------
-     Přidání aktuality
-     ------------------------------------------------------------------ */
+  
   function citace(v) {
     return '"' + String(v).replace(/\\/g, "\\\\").replace(/"/g, '\\"').replace(/\n/g, "\\n") + '"';
   }
@@ -326,7 +300,6 @@
     pridane.unshift(blok);
     prekresliPridane();
 
-    // Živý náhled na stránce (úvod)
     if (window.MATES) {
       var novy = {
         tag: tag || "Novinka",
@@ -401,7 +374,6 @@
     }
 
     function overVystup(text) {
-      // Ověří, že vygenerovaný soubor jde načíst jako skript
       var stary = window.MATES;
       try {
         new Function(text)();
@@ -413,14 +385,11 @@
         return false;
       }
     }
-
-    // 1) Pokus: vezmeme původní obsah.js a vložíme nové bloky (zachová komentáře)
     if (window.fetch) {
       fetch("obsah.js", { cache: "no-store" })
         .then(function (r) { return r.ok ? r.text() : null; })
         .then(function (text) {
           if (text === null) throw new Error("nacteni");
-          // pozor: hledáme řádek se skutečnou deklarací, ne zmínku v komentáři
           var m = /(\n\s*aktuality\s*:\s*\[)/.exec(text);
           if (!m) throw new Error("znacka");
           var vystup = text.slice(0, m.index + m[0].length) +
@@ -431,9 +400,7 @@
           zprava(true, "Staženo. Nahrajte soubor obsah.js na server (nahradí ten starý).");
         })
         .catch(function (err) {
-          // 2) Záložní: vygenerujeme obsah.js z paměti (bez komentářů)
-          var vystup = "/* Vygenerováno editovacím režimem MATES " + new Date().toISOString() +
-            " (původní obsah.js se nepodařilo načíst, komentáře se nezachovaly). */\n" +
+          var vystup = "\n" +
             "window.MATES = " + JSON.stringify(window.MATES, null, 2) + ";\n";
           if (!overVystup(vystup)) {
             zprava(false, "Nepodařilo se vygenerovat soubor. Zkuste to prosím znovu nebo upravte obsah.js ručně (NAVOD.md).");

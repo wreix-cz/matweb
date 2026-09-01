@@ -1,4 +1,4 @@
-/* MATES — styly. Barvy a písma se mění tady, obsah v obsah.js. */
+
 
 :root {
   color-scheme: light;
@@ -7,20 +7,20 @@
   --paper: #F5F6EF;
   --paper-2: #ECEEE3;
   --box: #F0F1EB;
-  --chalk: #F4F7FB;   /* bílá křída (na modré tabuli) */
-  --chalk-deep: #2F5D94; /* ocelová modř (na světlém pozadí) */
+  --chalk: #F4F7FB;   
+  --chalk-deep: #2F5D94; 
   --coral: #C6512F;
   --coral-bg: #FBEAE2;
   --line: #DAD9CC;
-  --text: #202B38;      /* neutrál zchlazený k modři */
-  --text-muted: #4E5C70; /* ≥ 5.5:1 na papíře */
+  --text: #202B38;      
+  --text-muted: #4E5C70; 
   --white: #FFFFFF;
 
-  /* modrá škála jednoho odstínu */
+  
   --blue-50: #E3EDF8;
   --blue-100: #DCE9F7;
   --blue-200: #C9DDF2;
-  /* sémantické stavy */
+  
   --ok: #2E6B3C; --ok-bg: #E4F0E6;
   --warn: #8A6D1D; --warn-bg: #F6F0DA;
 
@@ -32,10 +32,10 @@
   --font-mono: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
   --font-hand: "Caveat", "Segoe Script", cursive;
 
-  /* typografická škála */
+  
   --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1.0625rem;
   --text-lg: 1.125rem; --text-xl: 1.375rem; --text-2xl: 1.75rem; --text-3xl: 2.4rem;
-  /* rytmus pohybu */
+  
   --dur-1: 0.15s; --dur-2: 0.25s; --dur-3: 0.4s;
 
   --radius-sm: 4px;
@@ -47,7 +47,7 @@
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Tmavý režim */
+
 [data-theme="dark"] {
   color-scheme: dark;
   --ink: #DCE5F1;
@@ -61,7 +61,7 @@
   --coral-bg: #3A241C;
   --line: rgba(220,231,245,0.14);
   --text: #C9D4E2;
-  --text-muted: #9AA7BA; /* ≥ 6:1 na tmavých plochách */
+  --text-muted: #9AA7BA; 
   --white: #17223B;
   --blue-50: #22355A;
   --blue-100: #2A3F68;
@@ -82,7 +82,7 @@
 [data-theme="dark"] .edit-overlay { background: rgba(5,10,20,0.72); }
 @media (max-width: 900px) { .nav .theme-toggle { display: none; } }
 
-/* Reset */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { -webkit-font-smoothing: antialiased; scroll-padding-top: 84px; }
 body {
@@ -120,7 +120,7 @@ svg { display: block; }
   * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
 
-/* Základní prvky */
+
 .container { max-width: var(--container); margin: 0 auto; padding: 0 var(--pad); }
 .section { padding: var(--gap-section) 0; }
 .section--alt { background: var(--paper-2); }
@@ -141,7 +141,7 @@ svg { display: block; }
 }
 .skip-link:focus { top: 0; }
 
-/* Štítek [v závorkách] */
+
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
   font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500;
@@ -150,7 +150,7 @@ svg { display: block; }
 .eyebrow::before { content: "["; }
 .eyebrow::after { content: "]"; }
 
-/* Tlačítka */
+
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   padding: 12px 22px; border-radius: var(--radius-sm);
@@ -171,14 +171,14 @@ svg { display: block; }
 .btn-lg { padding: 15px 28px; font-size: 1rem; }
 .btn-full { width: 100%; }
 
-/* Chybový pruh */
+
 .chyba {
   background: var(--coral-bg); color: var(--coral);
   border-bottom: 2px solid var(--coral);
   padding: 12px var(--pad); font-size: 0.875rem; font-weight: 600;
 }
 
-/* Hlavička a menu */
+
 .site-header {
   position: sticky; top: 0; z-index: 1000;
   background: var(--paper);
@@ -245,11 +245,11 @@ svg { display: block; }
 }
 @media (min-width: 901px) { .nav__toggle { display: none !important; } }
 @media (max-width: 900px) {
-  /* Lupa v hlavičce je jen na desktopu — na mobilu je vyhledávání v menu */
+  
   .nav__search { display: none; }
 }
 
-/* Mobilní menu (vysouvací panel) */
+
 .mobile-nav, .mobile-nav__overlay { display: none; }
 
 @media (max-width: 900px) {
@@ -293,7 +293,7 @@ svg { display: block; }
   .mobile-nav__footer .theme-toggle { width: 100%; margin-top: 16px; gap: 8px; border: 1px solid var(--line); background: var(--paper-2); }
 }
 
-/* Hero — úvodní stránka */
+
 .hero {
   position: relative; overflow: hidden; padding: 104px 0 88px;
   background: var(--hero-bg);
@@ -336,7 +336,7 @@ svg { display: block; }
   to { opacity: 1; transform: none; }
 }
 
-/* Čmáranice v hero */
+
 .doodle {
   position: absolute; color: var(--chalk); opacity: 0.16;
   font-family: var(--font-mono); font-weight: 600;
@@ -349,7 +349,7 @@ svg { display: block; }
 .doodle--4 { top: 30%; right: 30%; width: 150px; transform: rotate(4deg); }
 @media (max-width: 900px) { .doodle { display: none; } }
 
-/* Hero vnitřních stránek */
+
 .page-hero {
   position: relative; overflow: hidden; padding: 72px 0 52px;
   background: var(--hero-bg);
@@ -365,9 +365,9 @@ svg { display: block; }
 .page-hero h1 { color: var(--chalk); font-size: clamp(2rem, 4.5vw, 2.9rem); margin-bottom: 10px; }
 .page-hero p { color: rgba(245,246,239,0.78); max-width: 600px; font-size: 1.0625rem; }
 
-/* Karty */
 
-/* Pracovní list — karta s perforovaným okrajem a izolepou */
+
+
 .worksheet, .vzkaz, .assignment {
   position: relative; background: var(--white); border: 1px solid var(--line);
   border-radius: var(--radius-md);
@@ -424,7 +424,7 @@ svg { display: block; }
 .mobile-nav__search .search__input { background: var(--white); }
 .mobile-nav__search .search__results { margin-top: 10px; max-height: 40vh; overflow-y: auto; }
 
-/* Vyhledávání — panel pod hlavičkou */
+
 .search-panel {
   position: absolute; top: 100%; left: 0; right: 0;
   background: var(--paper); border-bottom: 1px solid var(--line);
@@ -479,7 +479,7 @@ svg { display: block; }
   color: var(--text-muted); font-size: 0.9375rem;
 }
 
-/* Aktuální zadání */
+
 .assignment { overflow: hidden; max-width: 760px; transform: rotate(-0.3deg); }
 .assignment__head { padding: 30px 32px; border-bottom: 1px solid var(--line); }
 .assignment__label { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--chalk-deep); margin-bottom: 8px; }
@@ -503,7 +503,7 @@ svg { display: block; }
 .assignment__info a { color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--chalk); text-underline-offset: 3px; }
 .assignment__info a:hover { color: var(--chalk-deep); }
 
-/* Archiv */
+
 .archiv-list { display: flex; flex-direction: column; gap: 12px; max-width: 760px; }
 .archiv-item { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; transition: box-shadow 0.2s var(--ease); }
 .archiv-item:hover { box-shadow: 0 4px 16px rgba(16,35,74,0.08); }
@@ -515,7 +515,7 @@ svg { display: block; }
 .archiv-chevron { width: 18px; height: 18px; flex-shrink: 0; transition: transform 0.25s var(--ease); }
 .archiv-toggle[aria-expanded="true"] .archiv-chevron { transform: rotate(180deg); }
 
-/* Vysouvací panel — grid trik, visibility skrývá i z tabulátoru */
+
 .archiv-panel { display: grid; grid-template-rows: 0fr; visibility: hidden; transition: grid-template-rows 0.3s var(--ease), visibility 0.3s; }
 .archiv-panel.open { grid-template-rows: 1fr; visibility: visible; }
 .archiv-panel__clip { overflow: hidden; min-height: 0; }
@@ -530,7 +530,7 @@ a.archiv-link:hover { border-color: var(--chalk-deep); }
   a.archiv-link:hover .tag { color: var(--ink); }
   .archiv-series { display: flex; flex-direction: column; gap: 6px; }
 
-/* O soutěži */
+
 .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
 .o-nas h3 { font-size: 1.1875rem; margin: 1.9rem 0 0.7rem; }
 .o-nas h3:first-child { margin-top: 0; }
@@ -551,7 +551,7 @@ a.archiv-link:hover { border-color: var(--chalk-deep); }
   margin-top: 12px;
 }
 
-/* Patička */
+
 .site-footer { background: var(--ink-2); color: rgba(245,246,239,0.7); padding: 56px 0 28px; }
 .footer-top { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 48px; padding-bottom: 36px; border-bottom: 1px solid rgba(245,246,239,0.12); margin-bottom: 24px; }
 .footer-brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.1875rem; color: var(--chalk); margin-bottom: 12px; }
@@ -569,7 +569,7 @@ a.archiv-link:hover { border-color: var(--chalk-deep); }
 .footer-bottom__group { display: inline-flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .footer-school-logo img { height: 58px; width: auto; background: #fff; border-radius: 6px; padding: 5px 9px; display: block; }
 
-/* Editor (skrytý, zaheslovaný) */
+
 .edit-overlay {
   position: fixed; inset: 0; z-index: 5000;
   background: rgba(16,35,74,0.6);
@@ -609,7 +609,7 @@ a.archiv-link:hover { border-color: var(--chalk-deep); }
 .edit-heslo summary { cursor: pointer; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
 .edit-heslo summary:hover { color: var(--ink); }
 
-/* Responzivita */
+
 @media (max-width: 900px) {
   :root { --gap-section: 64px; }
   .card-grid { grid-template-columns: repeat(2, 1fr); }
@@ -629,7 +629,7 @@ a.archiv-link:hover { border-color: var(--chalk-deep); }
   .vzkaz { padding: 32px 26px 28px; }
 }
 
-/* Loading skeleton */
+
 @keyframes shimmer {
   0% { background-position: -200px 0; }
   100% { background-position: 200px 0; }
@@ -651,7 +651,7 @@ a.archiv-link:hover { border-color: var(--chalk-deep); }
   background: var(--white);
 }
 
-/* Tisk */
+
 @media print {
   .site-header, .site-footer, .hero, .page-hero, .mobile-nav, .mobile-nav__overlay,
   .skip-link, .search-panel, .theme-toggle, .doodle, .btn { display: none !important; }
