@@ -400,6 +400,10 @@ svg { display: block; }
 .worksheet__excerpt--clamp {
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; line-clamp: 3; overflow: hidden;
   margin-bottom: 8px;
+  max-height: 5.5em;
+}
+.worksheet__excerpt {
+  transition: max-height 0.35s var(--ease), margin-bottom 0.35s var(--ease);
 }
 .worksheet__toggle {
   align-self: flex-start; background: none; border: none; padding: 0;
@@ -407,20 +411,7 @@ svg { display: block; }
   cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
 }
 .worksheet__toggle:hover { color: var(--coral); }
-.worksheet__more {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s var(--ease);
-  overflow: hidden;
-}
-.worksheet__more.open {
-  grid-template-rows: 1fr;
-}
-.worksheet__more > * {
-  min-height: 0;
-}
-.worksheet__more .worksheet__excerpt { flex: 0; }
-.worksheet__more .worksheet__excerpt { flex: 0; }
+
 .worksheet.highlight { animation: hl-flash 2s var(--ease); }
 @keyframes hl-flash {
   0% { box-shadow: 0 0 0 4px var(--chalk-deep); }

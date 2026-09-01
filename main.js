@@ -196,10 +196,6 @@
     var exc = el("p", "worksheet__excerpt worksheet__excerpt--clamp", excerptOf(a.text));
     card.appendChild(exc);
 
-    var more = el("div", "worksheet__more");
-    more.appendChild(postBody(a));
-    card.appendChild(more);
-
     var needsToggle = String(a.text || "").length > 160;
     if (needsToggle) {
       var btn = el("button", "worksheet__toggle");
@@ -211,13 +207,11 @@
       btn.addEventListener("click", function () {
         var expanded = btn.getAttribute("aria-expanded") === "true";
         if (expanded) {
-          more.classList.remove("open");
-          exc.hidden = false;
+          exc.classList.add("worksheet__excerpt--clamp");
           btn.setAttribute("aria-expanded", "false");
           btn.textContent = "Rozbalit";
         } else {
-          more.classList.add("open");
-          exc.hidden = true;
+          exc.classList.remove("worksheet__excerpt--clamp");
           btn.setAttribute("aria-expanded", "true");
           btn.textContent = "Zabalit";
         }
