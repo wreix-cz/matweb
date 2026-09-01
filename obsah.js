@@ -8,8 +8,7 @@ window.MATES = {
     telefon: "Tel. 731 073 582",
     skola: "Gymnázium Polička",
     adresa: "Nám. Republiky 101, 572 01 Polička",
-    rocnik: "2025/2026",
-    rokVzniku: "2017"
+    rocnik: "2025/2026"
   },
 
   vzhled: {
@@ -19,13 +18,12 @@ window.MATES = {
   },
 
   hero: {
-    stav: "Ročník 2025/2026",
+    stav: "Ročník 2026/2027",
     podtitulek: "Matematická korespondenční soutěž pro žáky 6. a 7. tříd základních škol. Organizováno studenty Gymnázia Polička.",
 
     statistiky: [
-      { cislo: "04", text: "série ročně" },
-      { cislo: "06–07", text: "třída ZŠ" },
-      { cislo: "2017", text: "rok vzniku" }
+      { cislo: "4", text: "série ročně" },
+      { cislo: "6–7", text: "třída ZŠ" }
     ]
   },
 
@@ -42,21 +40,38 @@ window.MATES = {
       tag: "Novinka",
       datum: "1. 9. 2025",
       nadpis: "Spouštíme nový ročník 2025/2026!",
+      text: "Přihlašování není potřeba – stačí stáhnout zadání první série a zaslat řešení do uvedeného termínu. Kompletní výsledková listina ročníku 2025/2026 je ke stažení. Gratulujeme všem řešitelům!"
+    },
+    {
+      tag: "Novinka",
+      datum: "1. 9. 2025",
+      nadpis: "Spouštíme nový ročník 2025/2026!",
+      text: "Přihlašování není potřeba – stačí stáhnout zadání první série a zaslat řešení do uvedeného termínu."
+    },
+    {
+      tag: "Novinka",
+      datum: "1. 9. 2025",
+      nadpis: "Spouštíme nový ročník 2025/2026!",
       text: "Přihlašování není potřeba – stačí stáhnout zadání první série a zaslat řešení do uvedeného termínu."
     }
   ],
 
   aktualniSerie: {
-    label: "3. série",
-    nadpis: "Matematická korespondenční soutěž – 3. série 2025/2026",
+    label: "1. série",
+    nadpis: "Mates – 1. série 2026/2027",
     termin: "Termín odevzdání: 31. 3. 2026",
-    popis: "Třetí série úloh pro ročník 2025/2026 je nyní k dispozici ke stažení. Řešení zasílejte poštou nebo elektronicky do uvedeného termínu. Každá série obsahuje čtyři příklady – za každý lze získat až 10 bodů.",
-    pdfNazev: "MATES 3. série 2025/2026.pdf",
-    pdf: "assets/pdf/2025-2026/3-serie.pdf",
+    popis: "První série úloh pro ročník 2026/2027 je nyní k dispozici ke stažení. Řešení zasílejte poštou nebo elektronicky do uvedeného termínu.",
+    pdfNazev: "MATES 1. série 2026/2027.pdf",
+    pdf: "assets/pdf/2025-2026/1-serie.pdf",
     jakOdevzdat: "Řešení zasílejte poštou nebo elektronicky na adresu {email} vždy do uvedeného termínu. Do předmětu uveďte své jméno, školu a třídu."
   },
 
   archiv: [
+    {
+      rocnik: "2026/2027",
+      serie: [
+      ]
+    },
     {
       rocnik: "2025/2026",
       serie: [
@@ -129,7 +144,7 @@ window.MATES = {
     },
     {
       nadpis: "Matematické dopoledne",
-      text: "Začátkem druhého pololetí mají Matesáci možnost absolvovat matematické dopoledne. Program je jako vždy rozdělen do dvou částí – v první se zúčastní zajímavé přednášky a naučí se něco nového z matematiky, ve druhé si společně zahrají několik her."
+      text: "Začátkem druhého pololetí mají Matesáci možnost absolvovat matematické dopoledne. Program je rozdělen do dvou částí – v první se zúčastní zajímavé přednášky a naučí se něco nového z matematiky, ve druhé si společně zahrají několik her."
     },
     {
       nadpis: "Soustředění na Baldě",
