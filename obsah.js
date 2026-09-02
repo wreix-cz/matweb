@@ -12,8 +12,8 @@ window.MATES = {
   },
 
   vzhled: {
-    heroFotka: "assets/images/back26-4.jpg",
-    strankyFotka: "assets/images/back26-2.2.jpg",
+    heroFotka: "assets/images/back26-4.webp",
+    strankyFotka: "assets/images/back26-2.2.webp",
     poznamka: "Řešení zasílejte do termínu! ;)"
   },
 

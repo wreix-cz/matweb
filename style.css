@@ -411,6 +411,8 @@ svg { display: block; }
   cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
 }
 .worksheet__toggle:hover { color: var(--coral); }
+.worksheet__full { color: var(--text-muted); font-size: 0.9375rem; margin-bottom: 18px; }
+.worksheet__full p { margin-bottom: 12px; }
 
 .worksheet.highlight { animation: hl-flash 2s var(--ease); }
 @keyframes hl-flash {

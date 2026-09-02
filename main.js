@@ -193,11 +193,26 @@
     if (a.nadpis) title.textContent = a.nadpis;
     card.appendChild(title);
 
-    var exc = el("p", "worksheet__excerpt worksheet__excerpt--clamp", excerptOf(a.text));
+    var fullText = String(a.text || "");
+    var exc = el("p", "worksheet__excerpt worksheet__excerpt--clamp", excerptOf(fullText));
     card.appendChild(exc);
 
-    var needsToggle = String(a.text || "").length > 160;
+    var needsToggle = fullText.length > 200;
     if (needsToggle) {
+      var full = el("div", "worksheet__full");
+      full.hidden = true;
+      paragraphs(fullText).forEach(function (p) {
+        if (p) full.appendChild(el("p", null, p));
+      });
+      if (a.odkaz && a.odkazText) {
+        var la = link(a.odkaz, "worksheet__link", a.odkazText);
+        la.target = "_self";
+        la.rel = "";
+        la.appendChild(arrowSvg());
+        full.appendChild(la);
+      }
+      card.appendChild(full);
+
       var btn = el("button", "worksheet__toggle");
       btn.type = "button";
       btn.setAttribute("aria-expanded", "false");
@@ -207,11 +222,14 @@
       btn.addEventListener("click", function () {
         var expanded = btn.getAttribute("aria-expanded") === "true";
         if (expanded) {
+          exc.hidden = false;
           exc.classList.add("worksheet__excerpt--clamp");
+          full.hidden = true;
           btn.setAttribute("aria-expanded", "false");
           btn.textContent = "Rozbalit";
         } else {
-          exc.classList.remove("worksheet__excerpt--clamp");
+          exc.hidden = true;
+          full.hidden = false;
           btn.setAttribute("aria-expanded", "true");
           btn.textContent = "Zabalit";
         }
