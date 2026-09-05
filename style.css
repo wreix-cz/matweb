@@ -413,6 +413,7 @@ svg { display: block; }
 .worksheet__toggle:hover { color: var(--coral); }
 .worksheet__full { color: var(--text-muted); font-size: 0.9375rem; margin-bottom: 18px; }
 .worksheet__full p { margin-bottom: 12px; }
+.worksheet__excerpt[hidden], .worksheet__full[hidden] { display: none !important; }
 
 .worksheet.highlight { animation: hl-flash 2s var(--ease); }
 @keyframes hl-flash {

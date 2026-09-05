@@ -197,7 +197,8 @@
     var exc = el("p", "worksheet__excerpt worksheet__excerpt--clamp", excerptOf(fullText));
     card.appendChild(exc);
 
-    var needsToggle = fullText.length > 200;
+    var fullParagraphs = paragraphs(fullText).filter(function (p) { return p; });
+    var needsToggle = fullText.length > 150 || fullParagraphs.length > 1;
     if (needsToggle) {
       var full = el("div", "worksheet__full");
       full.hidden = true;
