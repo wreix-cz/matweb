@@ -20,9 +20,6 @@
   --blue-50: #E3EDF8;
   --blue-100: #DCE9F7;
   --blue-200: #C9DDF2;
-  
-  --ok: #2E6B3C; --ok-bg: #E4F0E6;
-  --warn: #8A6D1D; --warn-bg: #F6F0DA;
 
   --hero-bg: #10234A;
   --shadow-hdr: 0 6px 20px rgba(16,35,74,0.14);
@@ -66,8 +63,6 @@
   --blue-50: #22355A;
   --blue-100: #2A3F68;
   --blue-200: #33507F;
-  --ok: #7BC48F; --ok-bg: #1D3326;
-  --warn: #D9B45C; --warn-bg: #332B17;
   --hero-bg: #0B1526;
   --shadow-hdr: 0 6px 20px rgba(0,0,0,0.5);
 }
@@ -79,7 +74,6 @@
 
 [data-theme="dark"] .archiv-link { border-color: var(--line); }
 [data-theme="dark"] a.archiv-link:hover { border-color: var(--chalk-deep); background: var(--blue-50); }
-[data-theme="dark"] .edit-overlay { background: rgba(5,10,20,0.72); }
 @media (max-width: 900px) { .nav .theme-toggle { display: none; } }
 
 
@@ -574,46 +568,6 @@ a.archiv-link:hover { border-color: var(--chalk-deep); }
 .footer-bottom a:hover { color: var(--chalk); }
 .footer-bottom__group { display: inline-flex; align-items: center; gap: 18px; flex-wrap: wrap; }
 .footer-school-logo img { height: 58px; width: auto; background: #fff; border-radius: 6px; padding: 5px 9px; display: block; }
-
-
-.edit-overlay {
-  position: fixed; inset: 0; z-index: 5000;
-  background: rgba(16,35,74,0.6);
-  display: flex; align-items: flex-start; justify-content: center;
-  padding: 6vh 18px 40px; overflow-y: auto;
-}
-.edit-box {
-  background: var(--white); border: 1px solid var(--line); border-radius: 10px;
-  box-shadow: 0 24px 60px rgba(16,35,74,0.35);
-  width: 100%; max-width: 460px; padding: 26px 28px;
-}
-.edit-panel { max-width: 640px; }
-.edit-title { font-size: 1.3rem; margin: 4px 0 18px; }
-.edit-chyba {
-  margin: 10px 0; padding: 10px 14px; border-radius: var(--radius-sm);
-  background: var(--coral-bg); color: var(--coral); font-size: 0.875rem; font-weight: 600;
-}
-.edit-ok { background: var(--ok-bg); color: var(--ok); }
-.edit-akce { display: flex; gap: 10px; flex-wrap: wrap; }
-.edit-panel__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
-.edit-poznamka { font-size: 0.85rem; color: var(--text-muted); margin: 10px 0; }
-.edit-form .field { margin-bottom: 14px; }
-.edit-pridane { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
-.edit-pridane__nadpis { font-size: 0.95rem; margin-bottom: 10px; }
-.edit-kod {
-  background: var(--ink-2); color: var(--chalk); border-radius: 6px;
-  padding: 12px 14px; font-family: var(--font-mono); font-size: 0.78rem;
-  line-height: 1.6; overflow-x: auto; margin-bottom: 10px; white-space: pre;
-}
-.edit-stazeni { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
-.edit-hash-vystup {
-  font-family: var(--font-mono); font-size: 0.78rem; word-break: break-all;
-  background: var(--paper-2); border: 1px solid var(--line); border-radius: var(--radius-sm);
-  padding: 10px 12px; margin: 10px 0 4px;
-}
-.edit-heslo { margin-top: 16px; border-top: 1px solid var(--line); padding-top: 12px; }
-.edit-heslo summary { cursor: pointer; font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
-.edit-heslo summary:hover { color: var(--ink); }
 
 
 @media (max-width: 900px) {

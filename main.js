@@ -631,33 +631,33 @@
       (DATA.archiv || []).forEach(function (rok) {
         (rok.serie || []).forEach(function (s) {
           if (hit(norm(s.nazev + " " + rok.rocnik), q)) {
-            hits.push({ type: "Archiv · " + rok.rocnik, label: s.nazev, href: "/archiv/" });
+            hits.push({ type: "Archiv · " + rok.rocnik, label: s.nazev, href: "/archiv" });
           }
         });
       });
 
       (DATA.oNas || []).forEach(function (o) {
         if (hit(norm(o.nadpis + " " + o.text), q)) {
-          hits.push({ type: "O soutěži", label: o.nadpis, href: "/o-soutezi/" });
+          hits.push({ type: "O soutěži", label: o.nadpis, href: "/o-soutezi" });
         }
       });
 
 
       
       if (q.indexOf("prispev") !== -1 || q.indexOf("vsechny") !== -1 || q.indexOf("posts") !== -1) {
-        hits.unshift({ type: "Stránka", label: "Všechny příspěvky", href: "/vsechny-prispevky/" });
+        hits.unshift({ type: "Stránka", label: "Všechny příspěvky", href: "/vsechny-prispevky" });
       }
 
       
       if (q.indexOf("matesgympol") !== -1 || q.indexOf("gympolicka") !== -1 || q.indexOf("mates policka") !== -1 || q.indexOf("policka mates") !== -1) {
-        hits.unshift({ type: "Stránka", label: "O soutěži MATES", href: "/o-soutezi/" });
+        hits.unshift({ type: "Stránka", label: "O soutěži MATES", href: "/o-soutezi" });
         hits.unshift({ type: "Stránka", label: "MATES – Úvod", href: "/" });
       }
 
       
       if (q.indexOf("olympiad") !== -1 || q.indexOf("soutez") !== -1 || q.indexOf("matematik") !== -1 || q.indexOf("uloh") !== -1) {
         if (!hits.length || (hits.length < 3 && hits[0].href !== "/")) {
-          hits.unshift({ type: "Stránka", label: "Aktuální zadání – MATES", href: "/aktualni-zadani/" });
+          hits.unshift({ type: "Stránka", label: "Aktuální zadání – MATES", href: "/aktualni-zadani" });
         }
       }
 
@@ -832,9 +832,4 @@
     main();
   }
 
-  
-  window.MATESUI = {
-    renderPosts: renderPosts,
-    renderAktuality: renderPosts
-  };
 })();
