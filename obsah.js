@@ -58,11 +58,11 @@ window.MATES = {
 
   aktualniSerie: {
     label: "1. série",
-    nadpis: "Mates – 1. série 2026/2027",
-    termin: "Termín odevzdání: 31. 3. 2026",
-    popis: "První série úloh pro ročník 2026/2027 je nyní k dispozici ke stažení. Řešení zasílejte poštou nebo elektronicky do uvedeného termínu.",
+    nadpis: "Připravuje me pro vás :)",
+    termin: "Upřesníme",
+    popis: "První série úloh pro ročník 2026/2027 zatím není k dispozici ke stažení. Řešení zasílejte poštou nebo elektronicky do uvedeného termínu",
     pdfNazev: "MATES 1. série 2026/2027.pdf",
-    pdf: "assets/pdf/2025-2026/1-serie.pdf",
+    pdf: "",
     jakOdevzdat: "Řešení zasílejte poštou nebo elektronicky na adresu {email} vždy do uvedeného termínu. Do předmětu uveďte své jméno, školu a třídu."
   },
 
