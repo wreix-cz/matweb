@@ -58,7 +58,7 @@ window.MATES = {
 
   aktualniSerie: {
     label: "1. série",
-    nadpis: "Připravuje me pro vás :)",
+    nadpis: "Připravujeme pro vás :)",
     termin: "Upřesníme",
     popis: "První série úloh pro ročník 2026/2027 zatím není k dispozici ke stažení. Řešení zasílejte poštou nebo elektronicky do uvedeného termínu",
     pdfNazev: "MATES 1. série 2026/2027.pdf",
