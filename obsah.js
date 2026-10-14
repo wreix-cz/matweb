@@ -31,11 +31,16 @@ window.MATES = {
   aktuality: [
     {
       tag: "Novinka",
-      datum: "11. 10. 2026",
+      datum: "14. 10. 2026",
       nadpis: "Spouštíme nový ročník 2026/2027!",
       text: "Milé holky a kluci, připravte se! Už za chvilku se můžete těšit na novou sérii MATESA, která nás tentokrát zavede na Divoký západ. Čeká nás svět plný dobrodružství, nečekaných událostí a zajímavých příběhů, ve kterých nebude chybět ani spousta zapeklitých příkladů! Už teď se moc těšíme, až se s vámi do tohoto dobrodružství pustíme! Tak si připravte tužky, nasaďte kovbojské klobouky a buďte ve střehu – Divoký západ už na vás čeká a MATESÁCI taky! Novou sérii naleznete již teď na stránce aktuální série. :)"
     }
-    
+    {
+      tag: "Novinka",
+      datum: "14. 10. 2026",
+      nadpis: "Přihláška 2026/2027",
+      text: "Zdravím! Pokud jste tak ještě neučinili, chtěl bych vás poprosit o vyplnění přihlášky. Prosíme o její vyplnění nejpozději do termínu odeslání 1. série. Přihláška: https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=wCYuEb6RlkazjOrcQsYQIZxGVggEr1VGheDSPiI6UA9URTVRQlFQWkJCOURUMjFHUVFCUjlVVURCUS4u"
+    } 
   ],
 
   aktualniSerie: {
