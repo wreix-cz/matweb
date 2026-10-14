@@ -246,6 +246,12 @@
           btn.textContent = "Zabalit";
         }
       });
+    } else if (a.odkaz && a.odkazText) {
+      var la = link(a.odkaz, "worksheet__link", a.odkazText);
+      la.target = "_self";
+      la.rel = "";
+      la.appendChild(arrowSvg());
+      card.appendChild(la);
     }
     return card;
   }
