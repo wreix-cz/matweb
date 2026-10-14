@@ -39,8 +39,11 @@ window.MATES = {
       tag: "Přihláška",
       datum: "14. 10. 2026",
       nadpis: "Přihláška 2026/2027",
-      text: "Zdravím! Pokud jste tak ještě neučinili, chtěl bych vás poprosit o vyplnění přihlášky. Prosíme o její vyplnění nejpozději do termínu odeslání 1. série. Přihlašovací formulář: https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=wCYuEb6RlkazjOrcQsYQIZxGVggEr1VGheDSPiI6UA9URTVRQlFQWkJCOURUMjFHUVFCUjlVVURCUS4u",
+      text: "Zdravím! Pokud jste tak ještě neučinili, chtěl bych vás poprosit o vyplnění přihlášky. Prosíme o její vyplnění nejpozději do termínu odeslání 1. série.",
+        odkaz: "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=wCYuEb6RlkazjOrcQsYQIZxGVggEr1VGheDSPiI6UA9URTVRQlFQWkJCOURUMjFHUVFCUjlVVURCUS4u",
+        odkazText: "Vyplnit přihlášku",
     },
+
   ],
 
   aktualniSerie: {
