@@ -281,7 +281,7 @@
     }
 
     polozky.slice(0, 3).forEach(function (a, idx) {
-      grid.appendChild(idx === 0 ? fullCard(a) : compactCard(a));
+      grid.appendChild(compactCard(a));
     });
   }
 
