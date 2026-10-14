@@ -33,18 +33,18 @@ window.MATES = {
       tag: "Novinka",
       datum: "11. 10. 2026",
       nadpis: "Spouštíme nový ročník 2026/2027!",
-      text: "Přihlašování není potřeba – stačí stáhnout zadání první série a zaslat řešení do uvedeného termínu."
+      text: "Milé holky a kluci, připravte se! Už za chvilku se můžete těšit na novou sérii MATESA, která nás tentokrát zavede na Divoký západ. Čeká nás svět plný dobrodružství, nečekaných událostí a zajímavých příběhů, ve kterých nebude chybět ani spousta zapeklitých příkladů! Už teď se moc těšíme, až se s vámi do tohoto dobrodružství pustíme! Tak si připravte tužky, nasaďte kovbojské klobouky a buďte ve střehu – Divoký západ už na vás čeká a MATESÁCI taky! Novou sérii naleznete již teď na stránce aktuální série. :)"
     }
     
   ],
 
   aktualniSerie: {
     label: "1. série",
-    nadpis: "Připravujeme pro vás :)",
-    termin: "Upřesníme",
-    popis: "První série úloh pro ročník 2026/2027 zatím není k dispozici ke stažení. Řešení zasílejte poštou nebo elektronicky do uvedeného termínu",
+    nadpis: "Nová série je tu!",
+    termin: "20.11.2026",
+    popis: "První série úloh pro ročník 2026/2027 je k dispozici ke stažení. Řešení zasílejte poštou nebo elektronicky do uvedeného termínu",
     pdfNazev: "MATES 1. série 2026/2027.pdf",
-    pdf: "",
+    pdf: "assets/pdf/2026-2027/mates-1.serie-26-27 (2.3).pdf",
     jakOdevzdat: "Řešení zasílejte poštou nebo elektronicky na adresu {email} vždy do uvedeného termínu. Do předmětu uveďte své jméno, školu a třídu."
   },
 
