@@ -44,7 +44,7 @@ window.MATES = {
     termin: "20.11.2026",
     popis: "První série úloh pro ročník 2026/2027 je k dispozici ke stažení. Řešení zasílejte poštou nebo elektronicky do uvedeného termínu",
     pdfNazev: "MATES 1. série 2026/2027.pdf",
-    pdf: "assets/pdf/2026-2027/mates-1.serie-26-27 (2.3).pdf",
+    pdf: "assets/pdf/2026-2027/mates-1.serie-26-27 (2.1) 1.pdf",
     jakOdevzdat: "Řešení zasílejte poštou nebo elektronicky na adresu {email} vždy do uvedeného termínu. Do předmětu uveďte své jméno, školu a třídu."
   },
 
