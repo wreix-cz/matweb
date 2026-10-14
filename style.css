@@ -376,9 +376,9 @@ svg { display: block; }
 .posts-grid { display: grid; grid-template-columns: 1fr; gap: 26px 24px; }
 .posts-grid .worksheet--full { grid-column: 1 / -1; }
 .worksheet__excerpt--clamp {
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; line-clamp: 3; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; line-clamp: 4; overflow: hidden;
   margin-bottom: 8px;
-  max-height: 5.5em;
+  max-height: 7.3em;
 }
 .worksheet__excerpt {
   transition: max-height 0.35s var(--ease), margin-bottom 0.35s var(--ease);

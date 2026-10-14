@@ -143,8 +143,8 @@
   
   function excerptOf(text) {
     var s = String(text || "").split(/\n\s*\n/)[0].replace(/\s+/g, " ").trim();
-    if (s.length <= 150) return s;
-    var cut = s.slice(0, 150);
+    if (s.length <= 190) return s;
+    var cut = s.slice(0, 190);
     var sp = cut.lastIndexOf(" ");
     return (sp > 80 ? cut.slice(0, sp) : cut) + "…";
   }
@@ -209,7 +209,7 @@
     card.appendChild(exc);
 
     var fullParagraphs = paragraphs(fullText).filter(function (p) { return p; });
-    var needsToggle = fullText.length > 150 || fullParagraphs.length > 1;
+    var needsToggle = fullText.length > 190 || fullParagraphs.length > 1;
     if (needsToggle) {
       var full = el("div", "worksheet__full");
       full.hidden = true;
