@@ -35,6 +35,7 @@ window.MATES = {
       nadpis: "Spouštíme nový ročník 2026/2027!",
       text: "Přihlašování není potřeba – stačí stáhnout zadání první série a zaslat řešení do uvedeného termínu."
     }
+    
   ],
 
   aktualniSerie: {
